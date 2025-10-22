@@ -3,35 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Homework Tracker</title>
+<title>Daily Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="header">
+        <h1>Daily Tracker</h1>
+        <div id="clock">Loading...</div>
+    </div>
 
-<h1 id="date"></h1>
+    <div class="task-input-container">
+        <div id="color-box" class="color-box red"></div>
+        <input type="text" id="task-input" placeholder="Type a task..." />
+    </div>
 
-<div class="section" id="homework-section">
-    <h2>Homework</h2>
-    <input class="task-input" type="text" placeholder="Add homework...">
-    <ul class="task-list"></ul>
-</div>
-
-<div class="section" id="gym-section">
-    <h2>Gym</h2>
-    <input class="task-input" type="text" placeholder="Add gym...">
-    <ul class="task-list"></ul>
-</div>
-
-<div class="section" id="other-section">
-    <h2>Other</h2>
-    <input class="task-input" type="text" placeholder="Add other...">
-    <ul class="task-list"></ul>
-</div>
-
-<div class="recent">
-    <h2>Recently Completed</h2>
-    <ul id="recent-list"></ul>
-</div>
+    <div class="lists-container">
+        <div class="todo-section">
+            <h2>To-Do</h2>
+            <ul id="todo-list"></ul>
+        </div>
+        <div class="completed-section">
+            <h2>Completed</h2>
+            <ul id="completed-list"></ul>
+        </div>
+    </div>
 
 <script src="script.js"></script>
 </body>
