@@ -1,2 +1,2 @@
-# homework-tracker
+# DailyTracker
 My personal tracker
