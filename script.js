@@ -1,4 +1,4 @@
-// Live EST clock
+// Clock EST USA
 function updateClock() {
     const now = new Date();
     const est = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
@@ -8,7 +8,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Task color box
+// Color box setup
 const colorBox = document.getElementById('color-box');
 const colors = ['red','orange','green'];
 let colorIndex = 0;
@@ -17,7 +17,7 @@ colorBox.addEventListener('click', () => {
     colorBox.className = `color-box ${colors[colorIndex]}`;
 });
 
-// Load tasks from localStorage
+// Tasks
 let tasks = JSON.parse(localStorage.getItem('dailyTasks') || '[]');
 const todoList = document.getElementById('todo-list');
 const completedList = document.getElementById('completed-list');
@@ -28,6 +28,8 @@ function renderTasks() {
     todoList.innerHTML = '';
     completedList.innerHTML = '';
     const now = Date.now();
+
+    // Remove tasks older than 7 days
     tasks = tasks.filter(t => !t.completedAt || (now - t.completedAt) < 7*24*60*60*1000);
 
     tasks.forEach(task => {
@@ -67,11 +69,8 @@ function renderTasks() {
             renderTasks();
         });
 
-        if(task.completed) {
-            completedList.appendChild(li);
-        } else {
-            todoList.appendChild(li);
-        }
+        if(task.completed) completedList.appendChild(li);
+        else todoList.appendChild(li);
     });
 }
 
